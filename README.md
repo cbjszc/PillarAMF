@@ -36,7 +36,7 @@ Train and evaluate models by following:
 
 ### 📍 nuScenes Validation Set
 
-| Model               | mAP  | NDS  | Checkpoints |
+| Model               | mAP (%)  | NDS (%)  | Checkpoints |
 |--------------------|------|------|-------------|
 | **PillarAMF-Small** | 59.6 | 66.1 | [Google Drive](https://drive.google.com/file/d/1EGbp_66L4QrQ_PyUoij8k2DPZFfGq55Y/view?usp=sharing) / [Baidu (pwd: `9n4g`)](https://pan.baidu.com/s/1FsZfAeVthJDsNIT7ln4llA?pwd=9n4g) |
 | **PillarAMF-Base**  | 64.0 | 69.6 | [Google Drive](https://drive.google.com/file/d/13qzvi8NZdFSr6qLpG3g-vU44OAHphlTI/view?usp=sharing) / [Baidu (pwd: `b94h`)](https://pan.baidu.com/s/1pV0E--H84Np8kkEAlCf2sw?pwd=b94h) |
