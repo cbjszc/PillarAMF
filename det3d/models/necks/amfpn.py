@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-# 深度可分离卷积模块
+
 class DepthwiseSeparableConv(nn.Module):
     def __init__(self, in_ch, out_ch, kernel_size, padding, dilation):
         super().__init__()
@@ -19,7 +19,6 @@ class DepthwiseSeparableConv(nn.Module):
         x = self.relu2(x)
         return x
 
-# 多尺度特征提取器
 class MultiScaleFeatureExtractor(nn.Module):
     def __init__(self, in_channels, out_channels):
         super().__init__()
@@ -45,7 +44,6 @@ class MultiScaleFeatureExtractor(nn.Module):
         x_concat = torch.cat([x1, x2, x3, x4], dim=1)
         return self.fuse(x_concat)
 
-# 金字塔融合颈部
 class PyramidFusionNeck(nn.Module):
     def __init__(self, in_channels, out_channels):
         super().__init__()
