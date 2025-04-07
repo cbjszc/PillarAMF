@@ -1,0 +1,2 @@
+_target_: det3d.models.necks.mscb.PyramidFusionNeck
+_recursive_: False

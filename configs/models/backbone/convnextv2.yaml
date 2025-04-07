@@ -1,0 +1,2 @@
+_target_: det3d.models.backbones.convnextv2.ConvNeXtV2
+_recursive_: False

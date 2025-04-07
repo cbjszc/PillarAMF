@@ -1,0 +1,6 @@
+# @package scheduler
+_target_: torch.optim.lr_scheduler.OneCycleLR
+max_lr: 0.000375  # 调整最大学习率以适应较小的 batch size
+div_factor: 10.0  # 初始学习率为 max_lr / div_factor
+pct_start: 0.4  # 学习率上升阶段占 40%
+epochs: ${trainer.max_epochs}  # 传入 trainer 设置的总 epoch 数
