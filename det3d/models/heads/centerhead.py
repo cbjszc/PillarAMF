@@ -148,7 +148,6 @@ class CenterHead(nn.Module):
 
             hm_loss = self.crit(preds_dict['hm'], example['hm'][task_id], example['ind']
                                 [task_id], example['mask'][task_id], example['cat'][task_id])
-            # print(hm_loss)
             target_box = example['anno_box'][task_id]
             # reconstruct the anno_box from multiple reg heads
 
