@@ -18,7 +18,7 @@ torchrun --standalone --nnodes=1 --nproc_per_node=2 \
 
 ## 🎯 Training Strategy: *Faded Strategy*
 
-For the final reported results, we apply a **Faded Strategy**, where the **copy-and-paste augmentation is disabled during the last two epochs**.
+For the final reported results, we apply a **Faded Strategy**, where the **copy-and-paste augmentation is disabled during the last 5 epochs**.
 
 To disable copy-and-paste manually, add the following override:
 
