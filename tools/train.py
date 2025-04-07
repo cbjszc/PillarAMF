@@ -5,7 +5,7 @@ import torch
 import hydra
 from hydra.utils import instantiate
 from omegaconf import DictConfig, OmegaConf
-from thop import profile  # 导入 thop 用于统计 FLOPs 和参数数量
+from thop import profile
 
 import logging
 import os
@@ -62,7 +62,6 @@ def main(cfg: DictConfig):
     else:
         model = model.cuda()
 
-    # 使用 thop 统计 FLOPs 和参数数量
     # logger.info("Computing model FLOPs and parameters...")
     # dummy_input = get_dummy_input(train_dataloader)
     # flops, params = profile(model, inputs=(dummy_input,))
@@ -72,17 +71,10 @@ def main(cfg: DictConfig):
     logger.info(f"model structure: {model}")
     optimizer = instantiate(cfg.optimizer, params=model.parameters())
 
-    accumulation_steps = 4
+    accumulation_steps = 8
     steps_per_epoch_actual = math.ceil(len(train_dataloader) / accumulation_steps)
     lr_scheduler = instantiate(cfg.scheduler, optimizer=optimizer, steps_per_epoch=steps_per_epoch_actual,_recursive_=False)
     trainer = Trainer(model, train_dataloader, val_dataloader, optimizer, lr_scheduler, logger=logger,accumulation_steps=accumulation_steps, **cfg.trainer)
-
-    # accumulation_steps = 8
-    # lr_scheduler = instantiate(cfg.scheduler, optimizer=optimizer, steps_per_epoch=len(
-    #     train_dataloader) // accumulation_steps, _recursive_=False)
-    #
-    # trainer = Trainer(
-    #     model, train_dataloader, val_dataloader, optimizer, lr_scheduler, logger=logger, accumulation_steps = accumulation_steps, **cfg.trainer)
 
     if 'resume_from' in cfg:
         trainer.resume(cfg.resume_from)
@@ -93,13 +85,10 @@ def main(cfg: DictConfig):
     trainer.fit()
 
 def get_dummy_input(dataloader):
-    """
-    从 dataloader 获取一个示例输入，用于统计 FLOPs。
-    """
     example_batch = next(iter(dataloader))
     device = torch.cuda.current_device() if torch.cuda.is_available() else torch.device('cpu')
     dummy_input = {k: v.to(device) if isinstance(v, torch.Tensor) else v for k, v in example_batch.items()}
-    return (dummy_input,)  # 返回 tuple，以匹配模型输入格式
+    return (dummy_input,) 
 
 if __name__ == "__main__":
     main()
