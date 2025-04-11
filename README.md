@@ -1,6 +1,6 @@
 # 🚗 PillarAMF: Towards Efficient Pillar-based 3D Object Detection via Adaptive Multi-scale Feature Fusion
 
-**Zeliang Wang**, **Yangang Cai**, **Yi Li**, **Zhilei Ling**, **Zhen Song**, **Yuqiang Zhang**, and **Songlin Sun**  
+**Zeliang Wang**, **Yangang Cai**, **Zhilei Ling**, **Yi Li**, **Zhen Song**, **Yuqiang Zhang**, and **Songlin Sun**  
 *Beijing University of Posts and Telecommunications, Pengcheng National Laboratory*
 
 ---
