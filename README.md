@@ -1,7 +1,5 @@
 # 🚗 PillarAMF: Towards Efficient Pillar-based 3D Object Detection via Adaptive Multi-scale Feature Fusion
 
----
-
 ## 🧠 Architecture Overview
 
 <p align="left">
